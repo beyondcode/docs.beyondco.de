@@ -11,7 +11,7 @@ module.exports = {
     sidebarDepth: 1,
     repo: 'beyondcode/laravel-websockets',
     docsRepo: 'beyondcode/laravel-websockets-docs',
-    docsDir: '',
+    docsDir: 'resources/docs',
     docsBranch: 'master',
     editLinks: true,
     sidebar: {

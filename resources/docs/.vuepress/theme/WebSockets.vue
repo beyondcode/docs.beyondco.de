@@ -1,6 +1,6 @@
 <template>
   <div class="websocket-link can-hide" v-if="connected">
-    <a class="">{{ userCount }} users reading the documentation</a>
+    <a class="">{{ userCount }} {{ users }} reading the documentation</a>
   </div>
 </template>
 
@@ -13,6 +13,13 @@ export default {
       userCount: 0,
       connected: false,
     };
+  },
+
+  computed: {
+    users() {
+      let s = this.userCount === 1 ? '' : 's';
+      return `user${s}`;
+    }
   },
 
   mounted() {

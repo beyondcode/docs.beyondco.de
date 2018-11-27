@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/laravel-websockets/1.0/index.html');
+Route::redirect('/docs/', '/laravel-websockets/1.0/index.html');

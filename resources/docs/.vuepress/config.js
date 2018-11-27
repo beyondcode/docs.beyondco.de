@@ -2,8 +2,8 @@ module.exports = {
   title: 'Laravel WebSockets 🚀',
   description: 'WebSockets for Laravel. Done right.',
   
-  base: '/docs/',
-  dest: './public/docs',
+  base: '/laravel-websockets/',
+  dest: './public/laravel-websockets',
 
   themeConfig: {
     websocketClientKey: 'documentation',

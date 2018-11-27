@@ -48,8 +48,13 @@ return [
      * Leave this empty if you want to accepts requests from all hosts.
      */
     'allowedOrigins' => [
-
+        //
     ],
+
+    /*
+     * The maximum request size in kilobytes that is allowed for an incoming websocket request.
+     */
+    'maxRequestSizeInKb' => 250,
 
     /*
      * Define the optional SSL context for your websocket connections.

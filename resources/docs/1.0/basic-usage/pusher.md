@@ -20,7 +20,7 @@ BROADCAST_DRIVER=pusher
 
 ## Pusher Configuration
 
-When broadcasting events from your Laravel application to your WebSocket server, the default behavior is to send the event information to the official Pusher server. But since the Laravel WebSockets package comes with it's own Pusher API implementation, we need to tell Laravel to send the events to our own server.
+When broadcasting events from your Laravel application to your WebSocket server, the default behavior is to send the event information to the official Pusher server. But since the Laravel WebSockets package comes with its own Pusher API implementation, we need to tell Laravel to send the events to our own server.
 
 To do this, you should add the `host` and `port` configuration key to your `config/broadcasting.php` and add it to the `pusher` section. The default port of the Laravel WebSocket server is 6001.
 

@@ -1,6 +1,6 @@
 # Consuming events
 
-The WebSocket server will fire the following events that your handlers can listen for:
+The WebSockest server will fire the following events that your handlers can listen for:
 
 ### ApiMessageSent
 
@@ -44,9 +44,19 @@ This event has two public properties:
 
 This event will be fired when a client successfuly connects to the server.
 
-This event has one public properties:
+This event has one public property:
 
 - `connection` - The WebSocket connection (`Ratchet\ConnectionInterface`)
+
+### ExceptionThrown
+
+This event will be fired when an exception was thrown while the server is running.
+
+This event has two public properties:
+
+- `connection` - The WebSocket connection (`Ratchet\ConnectionInterface`)
+- `exception`: - The exception that was thrown (`Exception`)
+
 
 ### SubscribedToChannel
 

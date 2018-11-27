@@ -14,7 +14,7 @@ Next, you need to publish the WebSocket configuration file:
 php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"
 ```
 
-This is the default content of the config file:
+This is the default content of the config file that will be published as  `config/websockets.php`:
 
 ```php
 return [

@@ -8,4 +8,3 @@ Once installed, you can start it with on simple command
 ```php
 php artisan websocket:start
 ```
-

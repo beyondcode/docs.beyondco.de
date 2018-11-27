@@ -11,7 +11,7 @@ The package will automatically register a service provider.
 Next, you need to publish the WebSocket configuration file:
 
 ```bash
-php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketServiceProvider" --tag="config"
+php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"
 ```
 
 This is the default content of the config file:

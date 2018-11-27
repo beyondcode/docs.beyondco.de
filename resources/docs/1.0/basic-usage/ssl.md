@@ -80,3 +80,41 @@ When broadcasting events from your Laravel application to the WebSocket server, 
     ],
 ],
 ```
+
+## Using a reverse proxy (like Nginx)
+
+Alternatively, you can also use a proxy service - like Nginx or HAProxy - to handle the SSL configurations and proxy all requests in plain HTTP to your echo server.
+
+A basic Nginx configuration would look like this, but you might want to tweak the SSL parameters to your liking.
+
+```
+server {
+  listen        443 ssl;
+  listen        [::]:443 ssl;
+  server_name   socket.yourapp.tld;
+
+  # Start the SSL configurations
+  ssl                  on;
+  ssl_certificate      /etc/letsencrypt/socket.yourapp.tld/fullchain.pem;
+  ssl_certificate_key  /etc/letsencrypt/socket.yourapp.tld/privkey.pem;
+
+  location / {
+    proxy_pass             http://127.0.0.1:6001;
+    proxy_set_header Host  $host;
+    proxy_read_timeout     60;
+    proxy_connect_timeout  60;
+    proxy_redirect         off;
+
+    # Allow the use of websockets
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+}
+```
+
+For an updated version of the secure ciphers, please have a look at [cipherli.st](https://cipherli.st/).
+
+You can now talk HTTPS to `socket.yourapp.tld`. You would configure your `config/broadcasting.php` like the example above, treating your socket server as an `https` endpoint.

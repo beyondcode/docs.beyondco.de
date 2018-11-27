@@ -12,13 +12,20 @@ In addition to the OS restrictions, this package makes use of an event loop call
 
 The operation system limit of open "file descriptors" can be increased using the `ulimit` command. The `-n` option modifies the amount of open file descriptors.
 
-::: tip
-The `ulimit` command only **temporarily** increases the maximum number of open file descriptors. To permanently modify this value, you can edit it in your operation system `limits.conf` file.
-:::
-
 ```bash
 ulimit -n 10000
 ```
+
+The `ulimit` command only **temporarily** increases the maximum number of open file descriptors. To permanently modify this value, you can edit it in your operating system `limits.conf` file.
+
+You are best to do so by creating a file in the `limits.d` directory. This will work for both Red Hat & Ubuntu derivatives.
+
+```bash
+$ cat /etc/security/limits.d/laravel-echo.conf
+laravel-echo		soft		nofile		10000
+```
+
+The above example assumes you will run your echo server as the `laravel-echo` user, you are free to change that to your liking.
 
 #### Changing the event loop
 

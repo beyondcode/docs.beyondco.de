@@ -36,9 +36,10 @@ export default {
       const Echo = new module.default({
         broadcaster: 'pusher',
         key: this.$site.themeConfig.websocketClientKey,
-        wsHost: window.location.hostname,
+        wsHost: 'ws.beyondco.de',
         wsPort: 6001,
-        disableStats: true
+        disableStats: true,
+        encrypted: true
       });
 
       window.documentationChannel = Echo.join('documentation')
@@ -51,18 +52,12 @@ export default {
       .here(users => {
         this.connected = true;
         this.userCount = users.length;
-        console.log('Here',users);
       })
       .joining(user => {
         this.userCount += 1;
-        console.log('Joining',user);
       })
       .leaving(user => {
         this.userCount -= 1;
-        console.log('Leaving',user);
-      })
-      .listen('.hello', data => {
-        console.log('hello', data);
       });
     });
   }

@@ -1,3 +1,7 @@
+---
+title: Introduction
+---
+
 # Laravel WebSockets :rocket:
 WebSockets for Laravel. Done right.
 

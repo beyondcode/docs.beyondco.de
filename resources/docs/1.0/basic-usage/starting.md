@@ -3,7 +3,7 @@
 Once you have configured your WebSocket clients and Pusher settings, you can start the Laravel WebSocket server by issuing the artisan command:
 
 ```bash
-php artisan websocket:start
+php artisan websockets:serve
 ```
 
 ## Using a different port
@@ -11,7 +11,7 @@ php artisan websocket:start
 The default port of the Laravel WebSocket server is `6001`. You may pass a different port to the command using the `--port` option.
 
 ```bash
-php artisan websocket:start --port=3030
+php artisan websockets:serve --port=3030
 ```
 
 This will start listening on port `3030`.
@@ -23,7 +23,7 @@ By default, the Laravel WebSocket server will listen on `0.0.0.0` and will allow
 For example, by using `127.0.0.1`, you will only allow WebSocket connections from localhost.
 
 ```bash
-php artisan websocket:start --host=120.0.0.1
+php artisan websockets:serve --host=120.0.0.1
 ```
 
 ## Keeping the socket server running with supervisord

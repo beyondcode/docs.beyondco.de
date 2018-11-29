@@ -38,7 +38,7 @@ So if you find yourself in the need of adding additional configuration settings,
 After setting up your SSL settings, you can simply (re)start your WebSocket server using:
 
 ```bash
-php artisan websocket:start
+php artisan websockets:serve
 ```
 
 ## Client configuration

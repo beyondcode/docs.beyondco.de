@@ -10,5 +10,5 @@ Laravel WebSockets is a package for Laravel 5.7 and up that will get your applic
 Once installed, you can start it with one simple command
 
 ```php
-php artisan websocket:start
+php artisan websockets:serve
 ```

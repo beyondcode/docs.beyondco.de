@@ -115,6 +115,22 @@ server {
 }
 ```
 
-For an updated version of the secure ciphers, please have a look at [cipherli.st](https://cipherli.st/).
-
 You can now talk HTTPS to `socket.yourapp.tld`. You would configure your `config/broadcasting.php` like the example above, treating your socket server as an `https` endpoint.
+
+Note that you might need to increase the amount of `worker_connections` in Nginx. Your websocket connections will now be sent to Nginx, which in turn will send those along to the websocket server.
+
+By default, that will have a sane limit of 1024 connections. If you are expecting more concurrent connections to your websockets, you can increase this in your global `nginx.conf`.
+
+```
+events {
+    worker_connections  1024;
+}
+```
+
+You know you've reached this limit of your Nginx error logs contain similar messages to these:
+
+```
+[alert] 1024 worker_connections are not enough while connecting to upstream
+```
+
+Remember to restart your Nginx after you've modified the `worker_connections`.

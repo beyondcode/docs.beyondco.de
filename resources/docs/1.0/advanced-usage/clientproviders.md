@@ -4,6 +4,10 @@ With the multi-tenancy support of Laravel WebSockets, the default way of storing
 
 Depending on your setup, you might have your client stored elsewhere and having to keep the configuration in sync with your client storage can be tedious. To simplify this, you can create your own `ClientProvider` class that will take care of retrieving the WebSocket credentials for a specific WebSocket application.
 
+::: warning
+Make sure that you do **not** perform any IO blocking tasks in your Client Provider, as they will interfere with the asynchronous WebSocket execution.
+:::
+
 In order to create your custom `ClientProvider`, create a class that implements the `BeyondCode\LaravelWebSockets\ClientProviders\ClientProvider` interface.
 
 This is what it looks like:

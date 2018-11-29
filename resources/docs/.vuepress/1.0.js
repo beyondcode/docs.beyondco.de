@@ -29,7 +29,6 @@ module.exports = [
     title: 'Advanced usage',
     collapsable: false,
     children: prefix('advanced-usage', [
-      'events',
       'clientproviders',
     ]),
   },

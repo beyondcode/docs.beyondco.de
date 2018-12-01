@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Laravel WebSockets 🚀',
+  title: 'Laravel WebSockets 🛰',
   description: 'WebSockets for Laravel. Done right.',
   
   base: '/laravel-websockets/',

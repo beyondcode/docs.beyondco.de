@@ -18,7 +18,7 @@ Route::webSocketDashboard('my-dashboard');
 ```
 
 To access the debug dashboard, you can visit the dashboard URL of your Laravel project in the browser. 
-Since your WebSocket server has support for multiple clients, you can select which client you want to connect to and inspect.
+Since your WebSocket server has support for multiple apps, you can select which app you want to connect to and inspect.
 
 By pressing the "Connect" button, you can establish the WebSocket connection and see all events taking place on your WebSocket server from there on in real-time.
 

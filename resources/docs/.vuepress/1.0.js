@@ -29,7 +29,7 @@ module.exports = [
     title: 'Advanced usage',
     collapsable: false,
     children: prefix('advanced-usage', [
-      'clientproviders',
+      'app-providers',
     ]),
   },
   {

@@ -40,25 +40,25 @@ To do this, you should add the `host` and `port` configuration key to your `conf
 ],
 ```
 
-## Configuring WebSocket Clients
+## Configuring WebSocket Apps
 
 The Laravel WebSocket Pusher replacement server comes with multi-tenancy support out of the box. This means that you could host it independently from your current Laravel application and serve multiple WebSocket applications with one server.
 
-To make the move from an existing Pusher setup to this package as easy as possible, the default client simply uses your existing Pusher configuration.
+To make the move from an existing Pusher setup to this package as easy as possible, the default app simply uses your existing Pusher configuration.
 
-You may add additional clients in your `config/websockets.php` file.
+You may add additional apps in your `config/websockets.php` file.
 
 ::: warning
 Make sure to use the same app id, key and secret as in your broadcasting configuration section. Otherwise broadcasting events from Laravel will not work.
 :::
 
 ```php
-'clients' => [
+'apps' => [
     [
         'name' => env('APP_NAME'),
-        'app_id' => env('PUSHER_APP_ID'),
-        'app_key' => env('PUSHER_APP_KEY'),
-        'app_secret' => env('PUSHER_APP_SECRET')
+        'id' => env('PUSHER_APP_ID'),
+        'key' => env('PUSHER_APP_KEY'),
+        'secret' => env('PUSHER_APP_SECRET')
     ],
 ],
 ```

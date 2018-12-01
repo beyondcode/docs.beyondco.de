@@ -1,6 +1,6 @@
 # Starting the WebSocket Server
 
-Once you have configured your WebSocket clients and Pusher settings, you can start the Laravel WebSocket server by issuing the artisan command:
+Once you have configured your WebSocket apps and Pusher settings, you can start the Laravel WebSocket server by issuing the artisan command:
 
 ```bash
 php artisan websockets:serve

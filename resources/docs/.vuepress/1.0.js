@@ -30,6 +30,7 @@ module.exports = [
     collapsable: false,
     children: prefix('advanced-usage', [
       'app-providers',
+      'custom-websocket-handlers',
     ]),
   },
   {

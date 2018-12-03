@@ -117,9 +117,9 @@ server {
 
 You can now talk HTTPS to `socket.yourapp.tld`. You would configure your `config/broadcasting.php` like the example above, treating your socket server as an `https` endpoint.
 
-Note that you might need to increase the amount of `worker_connections` in Nginx. Your websocket connections will now be sent to Nginx, which in turn will send those along to the websocket server.
+Note that you might need to increase the amount of `worker_connections` in Nginx. Your WebSocket connections will now be sent to Nginx, which in turn will send those along to the websocket server.
 
-By default, that will have a sane limit of 1024 connections. If you are expecting more concurrent connections to your websockets, you can increase this in your global `nginx.conf`.
+By default, that will have a sane limit of 1024 connections. If you are expecting more concurrent connections to your WebSockets, you can increase this in your global `nginx.conf`.
 
 ```
 events {

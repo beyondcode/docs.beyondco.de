@@ -23,14 +23,16 @@ return [
      * This package comes with multi tenancy out of the box. Here you can
      * configure the different apps that can use the webSockets server.
      *
-     * You should make sure that the app id is numeric.
+     * Optionally you can disable client events so clients cannot send
+     * messages through each other via the webSockets.
      */
     'apps' => [
         [
             'id' => env('PUSHER_APP_ID'),
             'name' => env('APP_NAME'),
             'key' => env('PUSHER_APP_KEY'),
-            'ecret' => env('PUSHER_APP_SECRET')
+            'secret' => env('PUSHER_APP_SECRET'),
+            'enable_client_messages' => false,
         ],
     ],
 
@@ -47,17 +49,17 @@ return [
      * This array contains the hosts of which you want to allow incoming requests.
      * Leave this empty if you want to accepts requests from all hosts.
      */
-    'allowedOrigins' => [
+    'allowed_origins' => [
         //
     ],
 
     /*
-     * The maximum request size in kilobytes that is allowed for an incoming websocket request.
+     * The maximum request size in kilobytes that is allowed for an incoming WebSocket request.
      */
-    'maxRequestSizeInKb' => 250,
+    'max_request_size_in_kb' => 250,
 
     /*
-     * Define the optional SSL context for your websocket connections.
+     * Define the optional SSL context for your WebSocket connections.
      * You can see all available options at: http://php.net/manual/en/context.ssl.php
      */
     'ssl' => [

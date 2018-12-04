@@ -32,7 +32,7 @@ Once you have implemented your own AppProvider, you need to set it in the `webso
  * will use the apps defined in this config file.
  *
  * You can create a custom provider by implementing the
- * `AppProvier` interface.
+ * `AppProvider` interface.
  */
 'app_provider' => MyCustomAppProvider::class,
 ```

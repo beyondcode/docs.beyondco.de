@@ -51,4 +51,4 @@ This could, for example, be done inside your `routes/web.php` file.
 WebSocketsRouter::webSocket('/my-websocket', \App\MyCustomWebSocketHandler::class);
 ```
 
-Once you've added the custom WebSocket route, be sure to restart our WebSockets server for the changes to take place.
+Once you've added the custom WebSocket route, be sure to restart our WebSocket server for the changes to take place.

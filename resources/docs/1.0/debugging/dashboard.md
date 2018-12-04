@@ -6,16 +6,8 @@ In addition to logging the events to the console, you can also use a realtime Da
 
 ## Accessing the Dashboard
 
-The dashboard is only available, once you register the required routes in your `web.php` file.
-You can do this using `Route::webSocketDashboard();`
-
-This will register the dashboard routes under the `/websockets` prefix by default.
-
-If you want to change the prefix to something else, you can just pass it to the route method:
-
-```php
-Route::webSocketDashboard('my-dashboard');
-```
+The default location of the WebSocket dashboard is at `/laravel-websockets`. The routes get automatically registered.
+If you want to change the URL of the dashboard, you can configure it with the `path` setting in your `config/websockets.php` file.
 
 To access the debug dashboard, you can visit the dashboard URL of your Laravel project in the browser. 
 Since your WebSocket server has support for multiple apps, you can select which app you want to connect to and inspect.
@@ -38,6 +30,33 @@ public function boot()
         	// 
         ], $user->email);
     });
+}
+```
+
+## Statistics
+
+This package allows you to record key metrics of your WebSocket server. The WebSocket server will store a snapshot of the current number of peak connections, the amount of received WebSocket messages and the amount of received API messages defined in a fixed interval. The default setting is to store a snapshot every 60 seconds.
+
+In addition to simply storing the statistic information in your database, you can also see the statistics as they happen in real-time on the debug dashboard.
+
+![Real-Time Statistics](/img/statistics.gif)
+
+You can modify this interval by changing the `interval_in_seconds` setting in your config file.
+
+## Cleanup old Statistics
+
+After using the WebSocket server for a while you will have recorded a lot of statistical data that you might no longer need. This package provides an artisan command `websockets:clean` to clean these statistic log entries.
+
+Running this command will result in the deletion of all recorded statistics that are older than the number of days specified in the `delete_statistics_older_than_days` setting of the config file.
+
+You can leverage Laravel's scheduler to run the clean up command now and then.
+
+```php
+//app/Console/Kernel.php
+
+protected function schedule(Schedule $schedule)
+{
+   $schedule->command('websockets:clean')->daily();
 }
 ```
 

@@ -46,22 +46,38 @@ The Laravel WebSocket Pusher replacement server comes with multi-tenancy support
 
 To make the move from an existing Pusher setup to this package as easy as possible, the default app simply uses your existing Pusher configuration.
 
-You may add additional apps in your `config/websockets.php` file.
-
 ::: warning
 Make sure to use the same app id, key and secret as in your broadcasting configuration section. Otherwise broadcasting events from Laravel will not work.
 :::
 
+You may add additional apps in your `config/websockets.php` file.
+
 ```php
 'apps' => [
     [
-        'name' => env('APP_NAME'),
         'id' => env('PUSHER_APP_ID'),
+        'name' => env('APP_NAME'),
         'key' => env('PUSHER_APP_KEY'),
-        'secret' => env('PUSHER_APP_SECRET')
+        'secret' => env('PUSHER_APP_SECRET'),
+        'enable_client_messages' => false,
+        'enable_statistics' => true,
     ],
 ],
 ```
+
+### Client Messages
+
+For each app in your configuration file, you can define if this specific app should support a client-to-client messages. Usually all WebSocket messages go through your Laravel application before they will be broadcasted to other users. But sometimes you may want to enable a direct client-to-client communication instead of sending the events over the server. For example, a "typing" event in a chat application.
+
+It is important that you apply additional care when using client messages, since these originate from other users, and could be subject to tampering by a malicious user of your site.
+
+To enable or disable client messages, you can modify the `enable_client_messages` setting. The default value is `false`.
+
+### Statistics
+
+The Laravel WebSockets package comes with an out-of-the-box statistic solution that will give you key insights into the current status of your WebSocket server.
+
+To enable or disable the statistics for one of your apps, you can modify the `enable_statistics` setting. The default value is `true`.
 
 ## Usage with Laravel Echo
 

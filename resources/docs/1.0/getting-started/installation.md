@@ -8,6 +8,18 @@ composer require beyondcode/laravel-websockets
 
 The package will automatically register a service provider.
 
+This package comes with a migration to store statistic information while running your WebSocket server. You can publish the migration file using:
+
+```bash
+php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"
+```
+
+Run the migrations with:
+
+```bash
+php artisan migrate
+```
+
 Next, you need to publish the WebSocket configuration file:
 
 ```bash
@@ -59,26 +71,6 @@ return [
      */
     'max_request_size_in_kb' => 250,
 
-    'statistics' => [
-        /*
-         * This model will be used to store the statistics of the WebSocketsServer.
-         * The only requirement is that the model should be or extend
-         * `WebSocketsStatisticsEntry` provided by this package.
-         */
-        'model' => \BeyondCode\LaravelWebSockets\Statistics\Models\WebSocketsStatisticsEntry::class,
-
-        /*
-         * Here you can specify the interval in seconds at which statistics should be logged.
-         */
-        'interval_in_seconds' => 60,
-
-        /*
-         * When the clean-command is executed, all recorded statistics older than
-         * the number of days specified here will be deleted.
-         */
-        'delete_statistics_older_than_days' => 60
-    ],
-
     /*
      * This path will be used to register the necessary routes for the package.
      */
@@ -107,6 +99,26 @@ return [
          * Passphrase with which your local_cert file was encoded.
          */
         'passphrase' => null
+    ],
+
+    'statistics' => [
+        /*
+         * This model will be used to store the statistics of the WebSocketsServer.
+         * The only requirement is that the model should be or extend
+         * `WebSocketsStatisticsEntry` provided by this package.
+         */
+        'model' => \BeyondCode\LaravelWebSockets\Statistics\Models\WebSocketsStatisticsEntry::class,
+
+        /*
+         * Here you can specify the interval in seconds at which statistics should be logged.
+         */
+        'interval_in_seconds' => 60,
+
+        /*
+         * When the clean-command is executed, all recorded statistics older than
+         * the number of days specified here will be deleted.
+         */
+        'delete_statistics_older_than_days' => 60
     ],
 ];
 ```

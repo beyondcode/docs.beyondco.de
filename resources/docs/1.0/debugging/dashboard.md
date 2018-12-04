@@ -1,6 +1,6 @@
 # Debug Dashboard
 
-In addition to logging the events to the console, you can also use a realtime Dashboard that shows you all incoming connections, events and disconnects the moment they happen on your WebSocket server.
+In addition to logging the events to the console, you can also use a real-time dashboard that shows you all incoming connections, events and disconnects the moment they happen on your WebSocket server.
 
 ![Debug Dashboard](/img/dashboard.jpg)
 

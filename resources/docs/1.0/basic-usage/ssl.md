@@ -1,6 +1,6 @@
 # SSL Support
 
-Since most of the web's traffic is going through HTTPS it's also crucial to secure your WebSocket server. Luckily, adding SSL support to this package is really simple.
+Since most of the web's traffic is going through HTTPS, it's also crucial to secure your WebSocket server. Luckily, adding SSL support to this package is really simple.
 
 ## Configuration
 
@@ -44,7 +44,7 @@ php artisan websockets:serve
 ## Client configuration
 
 When your SSL settings are in place and working, you still need to tell Laravel Echo that it should make use of it.
-You can do this by specifying the `encrypted` property in your javascript file, like this:
+You can do this by specifying the `encrypted` property in your JavaScript file, like this:
 
 ```js
 import Echo from "laravel-echo"

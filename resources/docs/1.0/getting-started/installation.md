@@ -33,6 +33,7 @@ return [
             'key' => env('PUSHER_APP_KEY'),
             'secret' => env('PUSHER_APP_SECRET'),
             'enable_client_messages' => false,
+            'enable_statistics' => true,
         ],
     ],
 
@@ -57,6 +58,31 @@ return [
      * The maximum request size in kilobytes that is allowed for an incoming WebSocket request.
      */
     'max_request_size_in_kb' => 250,
+
+    'statistics' => [
+        /*
+         * This model will be used to store the statistics of the WebSocketsServer.
+         * The only requirement is that the model should be or extend
+         * `WebSocketsStatisticsEntry` provided by this package.
+         */
+        'model' => \BeyondCode\LaravelWebSockets\Statistics\Models\WebSocketsStatisticsEntry::class,
+
+        /*
+         * Here you can specify the interval in seconds at which statistics should be logged.
+         */
+        'interval_in_seconds' => 60,
+
+        /*
+         * When the clean-command is executed, all recorded statistics older than
+         * the number of days specified here will be deleted.
+         */
+        'delete_statistics_older_than_days' => 60
+    ],
+
+    /*
+     * This path will be used to register the necessary routes for the package.
+     */
+    'path' => 'laravel-websockets',
 
     /*
      * Define the optional SSL context for your WebSocket connections.

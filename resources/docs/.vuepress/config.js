@@ -4,6 +4,8 @@ module.exports = {
   
   base: '/laravel-websockets/',
   dest: './public/laravel-websockets',
+
+  ga: 'UA-75386803-9',
   
   head: [
     [

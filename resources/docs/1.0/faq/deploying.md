@@ -1,6 +1,6 @@
 # Deploying
 
-When your application is ready to get deployed, here are some tips to improve your WebSocket Server.
+When your application is ready to get deployed, here are some tips to improve your WebSocket server.
 
 ### Open Connection Limit
 

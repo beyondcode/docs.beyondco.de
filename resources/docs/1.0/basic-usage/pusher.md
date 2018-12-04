@@ -86,7 +86,7 @@ If you are new to Laravel Echo, be sure to take a look at the [official document
 
 To make Laravel Echo work with Laravel WebSockets, you need to make some minor configuration changes when working with Laravel Echo. Add the `wsHost` and `wsPort` parameters and point them to your Laravel WebSocket server host and port.
 
-By default, the Pusher javascript client tries to send statistic information - you should disable this using the `disableStats` option.
+By default, the Pusher JavaScript client tries to send statistic information - you should disable this using the `disableStats` option.
 
 ::: tip
 When using Laravel WebSockets in combination with a custom SSL certificate, be sure to use the `encrypted` option and set it to `true`.

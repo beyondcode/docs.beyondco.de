@@ -43,7 +43,7 @@
     <div
       class="footer"
     >
-      MIT Licensed | Developed by the awesome people at <a href="htts://beyondco.de">BeyondCode</a> and <a href="https://spatie.be">Spatie</a>.
+      MIT Licensed | Developed by the awesome people at <a href="https://beyondco.de">BeyondCode</a> and <a href="https://spatie.be">Spatie</a>.
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@ features:
 
 
 ```bash
-$ composer install beyondcode/laravel-websockets
+$ composer require beyondcode/laravel-websockets
 
 $ php artisan websockets:serve
 ```

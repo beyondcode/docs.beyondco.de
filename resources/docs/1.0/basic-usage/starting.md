@@ -28,7 +28,7 @@ php artisan websockets:serve --host=127.0.0.1
 
 ## Keeping the socket server running with supervisord
 
-The `websocket:start` daemon needs to always be running in order to accept connections. This is a prime use case for `supervisor`, a task runner on Linux.
+The `websockets:serve` daemon needs to always be running in order to accept connections. This is a prime use case for `supervisor`, a task runner on Linux.
 
 First, make sure `supervisor` is installed.
 
@@ -47,7 +47,7 @@ Within that directory, create a new file called `websockets.conf`.
 
 ```bash
 [program:websockets]
-command=/usr/bin/php /home/laravel-echo/laravel-websockets/artisan websocket:serve
+command=/usr/bin/php /home/laravel-echo/laravel-websockets/artisan websockets:serve
 numprocs=1
 autostart=true
 autorestart=true

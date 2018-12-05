@@ -57,7 +57,7 @@ window.Echo = new Echo({
     wsHost: window.location.hostname,
     wsPort: 6001,
     disableStats: true,
-	encrypted: true
+    encrypted: true
 });
 ```
 
@@ -73,7 +73,6 @@ When broadcasting events from your Laravel application to the WebSocket server, 
     'app_id' => env('PUSHER_APP_ID'),
     'options' => [
         'cluster' => env('PUSHER_APP_CLUSTER'),
-        'encrypted' => true,
         'host' => '127.0.0.1',
         'port' => 6001,
         'scheme' => 'https'
@@ -81,7 +80,79 @@ When broadcasting events from your Laravel application to the WebSocket server, 
 ],
 ```
 
-## Using a reverse proxy (like Nginx)
+Since the SSL configuration can vary quite a lot, depending on your setup, let's take a look at the most common approaches.
+
+## Usage with Laravel Valet
+
+Laravel Valet uses self-signed SSL certificates locally. 
+To use self-signed certificates with Laravel WebSockets, here's how the SSL configuration section in your `config/websockets.php` file should look like.
+
+::: tip
+Make sure that you replace `YOUR-USERNAME` with your Mac username and `VALET-SITE.TLD` with the host of the Valet site that you're working on right now. For example `laravel-websockets-demo.test`.
+:::
+
+```php
+'ssl' => [
+    /*
+     * Path to local certificate file on filesystem. It must be a PEM encoded file which
+     * contains your certificate and private key. It can optionally contain the
+     * certificate chain of issuers. The private key also may be contained
+     * in a separate file specified by local_pk.
+     */
+    'local_cert' => '/Users/YOUR-USERNAME/.config/valet/Certificates/VALET-SITE.TLD.crt',
+
+    /*
+     * Path to local private key file on filesystem in case of separate files for
+     * certificate (local_cert) and private key.
+     */
+    'local_pk' => '/Users/YOUR-USERNAME/.config/valet/Certificates/VALET-SITE.TLD.key',
+
+    /*
+     * Passphrase with which your local_cert file was encoded.
+     */
+    'passphrase' => null,
+
+    'verify_peer' => false,
+],
+```
+
+Next, you need to adjust the `config/broadcasting.php` file to make use of a secure connection when broadcasting messages from Laravel to the WebSocket server.
+
+You also need to disable SSL verification.
+
+```php
+'pusher' => [
+    'driver' => 'pusher',
+    'key' => env('PUSHER_APP_KEY'),
+    'secret' => env('PUSHER_APP_SECRET'),
+    'app_id' => env('PUSHER_APP_ID'),
+    'options' => [
+        'cluster' => env('PUSHER_APP_CLUSTER'),
+        'host' => '127.0.0.1',
+        'port' => 6001,
+        'scheme' => 'https',
+        'curl_options' => [
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0,
+        ]
+    ],
+],
+```
+
+Last but not least, you still need to configure Laravel Echo to also use WSS on port 6001.
+
+```js
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'your-pusher-key',
+    wsHost: window.location.hostname,
+    wsPort: 6001,
+    wssPort: 6001,
+    disableStats: true,
+});
+```
+
+## Usage with a reverse proxy (like Nginx)
 
 Alternatively, you can also use a proxy service - like Nginx or HAProxy - to handle the SSL configurations and proxy all requests in plain HTTP to your echo server.
 

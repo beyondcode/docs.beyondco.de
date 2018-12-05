@@ -83,7 +83,7 @@ When broadcasting events from your Laravel application to the WebSocket server, 
 
 ## Using a reverse proxy (like Nginx)
 
-Alternatively, you can also use a proxy service - like Nginx or HAProxy - to handle the SSL configurations and proxy all requests in plain HTTP to your echo server.
+Alternatively, you can also use a proxy service - like Nginx, HAProxy or Caddy - to handle the SSL configurations and proxy all requests in plain HTTP to your echo server.
 
 A basic Nginx configuration would look like this, but you might want to tweak the SSL parameters to your liking.
 
@@ -134,3 +134,29 @@ You know you've reached this limit of your Nginx error logs contain similar mess
 ```
 
 Remember to restart your Nginx after you've modified the `worker_connections`.
+
+### Example using Caddy
+
+[Caddy](https://caddyserver.com) can also be used to automatically obtain a TLS certificate from Let's Encrypt and terminate TLS before proxying to your echo server.
+
+An example configuration would look like this:
+
+```
+socket.yourapp.tld {
+    rewrite / {
+        if {>Connection} is Upgrade
+        if {>Upgrade} is websocket
+        to /special-websocket-url
+    }
+
+    proxy /special-websocket-url ws://127.0.0.1:6001 {
+        without /special-websocket-url
+        transparent
+        websocket
+    }
+    
+    tls youremail.com
+}
+```
+
+Note the `to /special-websocket-url`, this is a dummy path to allow the `proxy` directive to only proxy on websocket connections. This should be a path that will never be used by your application's routing.

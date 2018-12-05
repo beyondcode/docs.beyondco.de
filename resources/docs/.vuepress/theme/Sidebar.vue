@@ -16,6 +16,10 @@
       </li>
     </ul>
     <slot name="bottom"/>
+
+      <div class="sidebar-heading sidebar-footer">
+        Built by <a href="https://beyondco.de" target="_blank">Beyond Code</a> and <a href="https://spatie.be" target="_blank">Spatie</a>.
+      </div>
   </div>
 </template>
 
@@ -82,6 +86,9 @@ function resolveOpenGroupIndex (route, items) {
 @import './styles/config.styl'
 
 .sidebar
+  .sidebar-footer
+    cursor: auto
+    padding-top 0.75rem
   ul
     padding 0
     margin 0

@@ -23,7 +23,7 @@ By default, the Laravel WebSocket server will listen on `0.0.0.0` and will allow
 For example, by using `127.0.0.1`, you will only allow WebSocket connections from localhost.
 
 ```bash
-php artisan websockets:serve --host=120.0.0.1
+php artisan websockets:serve --host=127.0.0.1
 ```
 
 ## Keeping the socket server running with supervisord

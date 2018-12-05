@@ -47,7 +47,7 @@ Within that directory, create a new file called `websockets.conf`.
 
 ```bash
 [program:websockets]
-command=/usr/bin/php /home/laravel-echo/laravel-websockets/artisan websocket:start
+command=/usr/bin/php /home/laravel-echo/laravel-websockets/artisan websocket:serve
 numprocs=1
 autostart=true
 autorestart=true

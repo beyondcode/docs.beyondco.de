@@ -188,6 +188,65 @@ server {
 
 You can now talk HTTPS to `socket.yourapp.tld`. You would configure your `config/broadcasting.php` like the example above, treating your socket server as an `https` endpoint.
 
+### Same location for websockets and web contents
+
+To have the websockets be served at the same location and port as your other web content, Nginx can be teached to map incoming requests based on their type to special sub-locations.
+
+```
+map $http_upgrade $type {
+  default "web";
+  websocket "ws";
+}
+
+server {
+  listen        443 ssl;
+  listen        [::]:443 ssl;
+  server_name   socket.yourapp.tld;
+
+  # Start the SSL configurations
+  ssl                  on;
+  ssl_certificate      /etc/letsencrypt/socket.yourapp.tld/fullchain.pem;
+  ssl_certificate_key  /etc/letsencrypt/socket.yourapp.tld/privkey.pem;
+
+  index index.html index.htm index.php;
+  charset utf-8;
+
+  location / {
+    try_files /nonexistent @$type;
+  }
+  
+  location @web {
+    try_files $uri $uri/ /index.php?$query_string;
+  }
+
+  location @ws {
+    proxy_pass             http://127.0.0.1:6001;
+    proxy_set_header Host  $host;
+    proxy_read_timeout     60;
+    proxy_connect_timeout  60;
+    proxy_redirect         off;
+
+    # Allow the use of websockets
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+
+  location ~ \.php$ {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    fastcgi_index index.php;
+    include fastcgi_params;
+  }
+}
+```
+
+This configuration is useful if you do not want to open multiple ports or you are restricted to which ports are already opened on your server.
+
+### Nginx worker connections
+
 Note that you might need to increase the amount of `worker_connections` in Nginx. Your WebSocket connections will now be sent to Nginx, which in turn will send those along to the websocket server.
 
 By default, that will have a sane limit of 1024 connections. If you are expecting more concurrent connections to your WebSockets, you can increase this in your global `nginx.conf`.

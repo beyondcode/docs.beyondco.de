@@ -199,17 +199,7 @@ map $http_upgrade $type {
 }
 
 server {
-  listen        443 ssl;
-  listen        [::]:443 ssl;
-  server_name   socket.yourapp.tld;
-
-  # Start the SSL configurations
-  ssl                  on;
-  ssl_certificate      /etc/letsencrypt/socket.yourapp.tld/fullchain.pem;
-  ssl_certificate_key  /etc/letsencrypt/socket.yourapp.tld/privkey.pem;
-
-  index index.html index.htm index.php;
-  charset utf-8;
+  # Your default configuration comes here...
 
   location / {
     try_files /nonexistent @$type;
@@ -233,17 +223,31 @@ server {
     proxy_set_header Host $host;
     proxy_cache_bypass $http_upgrade;
   }
-
-  location ~ \.php$ {
-    fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-    fastcgi_index index.php;
-    include fastcgi_params;
-  }
 }
 ```
 
-This configuration is useful if you do not want to open multiple ports or you are restricted to which ports are already opened on your server.
+This configuration is useful if you do not want to open multiple ports or you are restricted to which ports are already opened on your server. Alternatively, a second Nginx location can be used on the server-side, while the Pusher configuration [`wsPath`](https://github.com/pusher/pusher-js#wspath) can be used on the client-side (_note: `"pusher/pusher-php-server": ">=4.2.2"` is required for this configuration option_).
+
+```
+server {
+  # Your default configuration comes here...
+
+  location /ws {
+    proxy_pass             http://127.0.0.1:6001;
+    proxy_set_header Host  $host;
+    proxy_read_timeout     60;
+    proxy_connect_timeout  60;
+    proxy_redirect         off;
+
+    # Allow the use of websockets
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+}
+```
 
 ### Nginx worker connections
 

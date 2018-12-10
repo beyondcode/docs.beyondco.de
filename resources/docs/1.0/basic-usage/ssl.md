@@ -226,7 +226,7 @@ server {
 }
 ```
 
-This configuration is useful if you do not want to open multiple ports or you are restricted to which ports are already opened on your server. Alternatively, a second Nginx location can be used on the server-side, while the Pusher configuration [`wsPath`](https://github.com/pusher/pusher-js#wspath) can be used on the client-side (_note: `"pusher/pusher-php-server": ">=4.2.2"` is required for this configuration option_).
+This configuration is useful if you do not want to open multiple ports or you are restricted to which ports are already opened on your server. Alternatively, a second Nginx location can be used on the server-side, while the Pusher configuration [`wsPath`](https://github.com/pusher/pusher-js#wspath) can be used on the client-side (_note: `"pusher-js": ">=4.2.2"` is required for this configuration option_).
 
 ```
 server {

@@ -30,8 +30,8 @@ The default configuration has a SSL section that looks like this:
 ],
 ```
 
-But this is only a subset of all the available configuration options. 
-This packages makes use of the official PHP [SSL context options](http://php.net/manual/en/context.ssl.php). 
+But this is only a subset of all the available configuration options.
+This packages makes use of the official PHP [SSL context options](http://php.net/manual/en/context.ssl.php).
 
 So if you find yourself in the need of adding additional configuration settings, take a look at the PHP documentation and simply add the configuration parameters that you need.
 
@@ -84,7 +84,7 @@ Since the SSL configuration can vary quite a lot, depending on your setup, let's
 
 ## Usage with Laravel Valet
 
-Laravel Valet uses self-signed SSL certificates locally. 
+Laravel Valet uses self-signed SSL certificates locally.
 To use self-signed certificates with Laravel WebSockets, here's how the SSL configuration section in your `config/websockets.php` file should look like.
 
 ::: tip
@@ -171,7 +171,6 @@ server {
 
   location / {
     proxy_pass             http://127.0.0.1:6001;
-    proxy_set_header Host  $host;
     proxy_read_timeout     60;
     proxy_connect_timeout  60;
     proxy_redirect         off;

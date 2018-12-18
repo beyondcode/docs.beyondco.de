@@ -26,9 +26,9 @@ public function boot()
     $this->registerPolicies();
 
     Gate::define('viewWebSocketsDashboard', function ($user = null) {
-        return in_array([
-        	// 
-        ], $user->email);
+        return in_array($user->email, [
+            //
+        ]);
     });
 }
 ```

@@ -8,8 +8,10 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "docs:dev": "vuepress dev resources/docs",
-        "docs:build": "vuepress build resources/docs"
+        "docs:websockets:dev": "vuepress dev resources/docs/laravel-websockets",
+        "docs:websockets:build": "vuepress build resources/docs/laravel-websockets",
+        "docs:mailbox:dev": "vuepress dev resources/docs/laravel-mailbox",
+        "docs:mailbox:build": "vuepress build resources/docs/laravel-mailbox"
     },
     "devDependencies": {
         "axios": "^0.18",

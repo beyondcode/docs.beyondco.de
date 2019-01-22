@@ -24,8 +24,8 @@ module.exports = {
     displayAllHeaders: true,
     sidebarDepth: 1,
     repo: 'beyondcode/laravel-websockets',
-    docsRepo: 'beyondcode/laravel-websockets-docs',
-    docsDir: 'resources/docs',
+    docsRepo: 'beyondcode/docs.beyondco.de',
+    docsDir: 'resources/docs/laravel-mailbox',
     docsBranch: 'master',
     editLinks: true,
     sidebar: {

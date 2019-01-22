@@ -1,0 +1,1 @@
+<meta http-equiv="refresh" content="0;url=/laravel-websockets/1.0/getting-started/introduction.html" />

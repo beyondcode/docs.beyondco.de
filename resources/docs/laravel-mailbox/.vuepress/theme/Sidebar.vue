@@ -2,6 +2,13 @@
   <div class="sidebar">
     <NavLinks/>
     <slot name="top"/>
+
+    <div class="sidebar-heading" style="padding-top: 30px; display: flex; align-items: center; justify-content: center;">
+      <a target="_blank" href="https://phppackagedevelopment.com/?utm_source=display&utm_medium=banner&utm_campaign=package-development">
+        <img style="max-width: 130px; max-height: 100px" src="https://display-demo.schlein.net/images/phppd.jpg">
+      </a>
+    </div>
+
     <ul class="sidebar-links" v-if="items.length">
       <li v-for="(item, i) in items" :key="i">
         <SidebarGroup
@@ -18,7 +25,7 @@
     <slot name="bottom"/>
 
       <div class="sidebar-heading sidebar-footer">
-        Built by <a href="https://beyondco.de" target="_blank">Beyond Code</a> and <a href="https://spatie.be" target="_blank">Spatie</a>.
+        Built by <a href="https://beyondco.de" target="_blank">Beyond Code</a>.
       </div>
   </div>
 </template>

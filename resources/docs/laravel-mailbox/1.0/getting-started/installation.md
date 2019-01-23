@@ -11,7 +11,7 @@ The package will automatically register a service provider.
 This package comes with a migration to store all incoming email messages. You can publish the migration file using:
 
 ```bash
-php artisan vendor:publish --provider="BeyondCode\LaravelMailbox\MailboxServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="BeyondCode\Mailbox\MailboxServiceProvider" --tag="migrations"
 ```
 
 Run the migrations with:
@@ -23,7 +23,7 @@ php artisan migrate
 Next, you need to publish the mailbox configuration file:
 
 ```bash
-php artisan vendor:publish --provider="BeyondCode\LaravelMailbox\MailboxServiceProvider" --tag="config"
+php artisan vendor:publish --provider="BeyondCode\Mailbox\MailboxServiceProvider" --tag="config"
 ```
 
 This is the default content of the config file that will be published as  `config/mailbox.php`:

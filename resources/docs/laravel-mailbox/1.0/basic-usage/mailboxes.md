@@ -80,7 +80,7 @@ Instead of checking for the email recipients or sender you can also match agains
 This mailbox will be called whenever the email subject matches.
 
 ```php
-Mailbox::subject('cc@domain.com', MyMailbox::class);
+Mailbox::subject('Feedback Request', MyMailbox::class);
 ```
 
 ## Catch-All

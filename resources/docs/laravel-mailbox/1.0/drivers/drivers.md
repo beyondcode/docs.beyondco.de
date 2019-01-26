@@ -15,6 +15,24 @@ Next you will need to configure Mailgun, to send incoming emails to your applica
 
 See ["Receiving, Forwarding and Storing Messages"](https://documentation.mailgun.com/en/latest/user_manual.html#receiving-forwarding-and-storing-messages) in the Mailgun documentation.
 
+## Postmark
+
+::: warning
+To use Postmark with Laravel Mailbox, you will need to generate a random password and store it as the `MAILBOX_HTTP_PASSWORD` environment variable. The default username is "laravel-mailbox", but you can change it using the `MAILBOX_HTTP_USERNAME` environment variable. 
+:::
+
+You can then set your `MAILBOX_DRIVER` to "postmark".
+
+Next you will need to configure Postmark, to send incoming emails to your application at `/laravel-mailbox/postmark`. Use the username and the password that you generated for the URL. 
+
+If your application is at `https://awesome-laravel.com`, it would be `https://laravel-mailbox:YOUR-GENERATED-PASSWORD@awesome-laravel.com/laravel-mailbox/postmark`.
+
+See the official ["Postmark documentation"](https://postmarkapp.com/manual#configure-your-inbound-webhook-url).
+
+::: tip
+Be sure the check the box labeled "Include raw email content in JSON payload" when setting up Postmark.
+:::
+
 ## SendGrid
 
 ::: warning

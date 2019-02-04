@@ -38,7 +38,7 @@ apt install supervisor
 
 # On Red Hat / CentOS
 yum install supervisor
-systemctl enable supervisor
+systemctl enable supervisord
 ```
 
 Once installed, add a new process that `supervisor` needs to keep running. You place your configurations in the `/etc/supervisor/conf.d` (Debian/Ubuntu) or `/etc/supervisord.d` (Red Hat/CentOS) directory.

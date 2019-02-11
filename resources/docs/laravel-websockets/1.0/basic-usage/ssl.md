@@ -277,12 +277,12 @@ An example configuration would look like this:
 ```
 socket.yourapp.tld {
     rewrite / {
-        if {>Connection} is Upgrade
+        if {>Connection} has Upgrade
         if {>Upgrade} is websocket
-        to /special-websocket-url
+        to /websocket-proxy/{path}?{query}
     }
 
-    proxy /special-websocket-url ws://127.0.0.1:6001 {
+    proxy /websocket-proxy 127.0.0.1:6001 {
         without /special-websocket-url
         transparent
         websocket
@@ -292,4 +292,4 @@ socket.yourapp.tld {
 }
 ```
 
-Note the `to /special-websocket-url`, this is a dummy path to allow the `proxy` directive to only proxy on websocket connections. This should be a path that will never be used by your application's routing.
+Note the `to /websocket-proxy`, this is a dummy path to allow the `proxy` directive to only proxy on websocket connections. This should be a path that will never be used by your application's routing. Also, note that you should change `127.0.0.1` to the hostname of your websocket server. For example, if you're running in a Docker environment, this might be the container name of your websocket server.

@@ -166,8 +166,8 @@ server {
 
   # Start the SSL configurations
   ssl                  on;
-  ssl_certificate      /etc/letsencrypt/socket.yourapp.tld/fullchain.pem;
-  ssl_certificate_key  /etc/letsencrypt/socket.yourapp.tld/privkey.pem;
+  ssl_certificate      /etc/letsencrypt/live/socket.yourapp.tld/fullchain.pem;
+  ssl_certificate_key  /etc/letsencrypt/live/socket.yourapp.tld/privkey.pem;
 
   location / {
     proxy_pass             http://127.0.0.1:6001;

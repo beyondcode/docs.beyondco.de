@@ -50,6 +50,10 @@ To make the move from an existing Pusher setup to this package as easy as possib
 Make sure to use the same app id, key and secret as in your broadcasting configuration section. Otherwise broadcasting events from Laravel will not work.
 :::
 
+::: tip
+When using Laravel WebSockets as a Pusher replacement without having used Pusher before, it does not matter what you set as your `PUSHER_` variables. Just make sure they are unique for each project.
+:::
+
 You may add additional apps in your `config/websockets.php` file.
 
 ```php

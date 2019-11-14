@@ -189,7 +189,7 @@ You can now talk HTTPS to `socket.yourapp.tld`. You would configure your `config
 
 ### Same location for websockets and web contents
 
-To have the websockets be served at the same location and port as your other web content, Nginx can be teached to map incoming requests based on their type to special sub-locations.
+To have the websockets be served at the same location and port as your other web content, Nginx can be taught to map incoming requests based on their type to special sub-locations.
 
 ```
 map $http_upgrade $type {

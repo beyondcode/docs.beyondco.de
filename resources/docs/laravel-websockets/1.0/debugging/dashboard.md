@@ -14,6 +14,8 @@ Since your WebSocket server has support for multiple apps, you can select which 
 
 By pressing the "Connect" button, you can establish the WebSocket connection and see all events taking place on your WebSocket server from there on in real-time.
 
+**Note:** Be sure to set the ``APP_URL`` env variable to match the current URL where your project is running to be sure the stats graph works properly.
+
 ## Protecting the Dashboard
 
 By default, access to the WebSocket dashboard is only allowed while your application environment is set to `local`.

@@ -37,3 +37,7 @@ sudo pecl install ev
 # or
 sudo pecl install event
 ```
+
+#### Deploying on Laravel Forge
+
+If your are using [Laravel Forge](https://forge.laravel.com/) for the deployment [this article by Alex Bouma](https://alex.bouma.dev/installing-laravel-websockets-on-forge) might help you out.

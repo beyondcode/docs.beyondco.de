@@ -7,6 +7,7 @@ This package works by listening for incoming emails from one of the supported dr
 You can define your mailboxes in one of your Laravel service providers. For example, within the `boot` method of your `AppServiceProvider`.
 
 ```php
+use BeyondCode\Mailbox\InboundEmail;
 use BeyondCode\Mailbox\Facades\Mailbox;
 
 class AppServiceProvider extends ServiceProvider

@@ -6,7 +6,7 @@ The easiest way to get started with Laravel WebSockets is by using it as a [Push
 
 To make use of the Laravel WebSockets package in combination with Pusher, you first need to install the official Pusher PHP SDK. 
 
-If you are not yet familiar with the concept of Broadcasting in Laravel, please take a look at the [Laravel documentation](https://laravel.com/docs/5.7/broadcasting).
+If you are not yet familiar with the concept of Broadcasting in Laravel, please take a look at the [Laravel documentation](https://laravel.com/docs/6.x/broadcasting).
 
 ```bash
 composer require pusher/pusher-php-server "~3.0"
@@ -81,8 +81,8 @@ To enable or disable the statistics for one of your apps, you can modify the `en
 
 ## Usage with Laravel Echo
 
-The Laravel WebSockets package integrates nicely into [Laravel Echo](https://laravel.com/docs/5.7/broadcasting#receiving-broadcasts) to integrate into your frontend application and receive broadcasted events.
-If you are new to Laravel Echo, be sure to take a look at the [official documentation](https://laravel.com/docs/5.7/broadcasting#receiving-broadcasts).
+The Laravel WebSockets package integrates nicely into [Laravel Echo](https://laravel.com/docs/6.x/broadcasting#receiving-broadcasts) to integrate into your frontend application and receive broadcasted events.
+If you are new to Laravel Echo, be sure to take a look at the [official documentation](https://laravel.com/docs/6.x/broadcasting#receiving-broadcasts).
 
 To make Laravel Echo work with Laravel WebSockets, you need to make some minor configuration changes when working with Laravel Echo. Add the `wsHost` and `wsPort` parameters and point them to your Laravel WebSocket server host and port.
 
@@ -106,4 +106,4 @@ window.Echo = new Echo({
 });
 ```
 
-Now you can use all Laravel Echo features in combination with Laravel WebSockets, such as [Presence Channels](https://laravel.com/docs/5.7/broadcasting#presence-channels), [Notifications](https://laravel.com/docs/5.7/broadcasting#notifications) and [Client Events](https://laravel.com/docs/5.7/broadcasting#client-events).
+Now you can use all Laravel Echo features in combination with Laravel WebSockets, such as [Presence Channels](https://laravel.com/docs/6.x/broadcasting#presence-channels), [Notifications](https://laravel.com/docs/6.x/broadcasting#notifications) and [Client Events](https://laravel.com/docs/6.x/broadcasting#client-events).

@@ -1,6 +1,6 @@
 # Handling Inbound Emails
 
-Once one of your mailboxes mathces an incoming email, you have access to the `InboundEmail` object that references this email. This class has a lot of convenience methods for you, to access the email content.
+Once one of your mailboxes matches an incoming email, you have access to the `InboundEmail` object that references this email. This class has a lot of convenience methods for you, to access the email content.
 
 Under the hood, this class uses the [Mail Mime Parser](https://mail-mime-parser.org) package to parse the incoming email MIME and access it.
 

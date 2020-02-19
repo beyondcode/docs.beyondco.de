@@ -2,6 +2,15 @@
   <div class="sidebar">
     <NavLinks/>
     <slot name="top"/>
+
+    <div style="display: flex; flex-flow: column; align-items: center; justify-content: center;padding-top: 25px;">
+      <a href="https://tinkerwell.app/?ref=docs"><img src="https://tinkerwell.app/images/icon.png" width="50" />
+      </a>
+      <a href="https://tinkerwell.app/?ref=docs">
+        <p>Tinkerwell - the magical code editor</p>
+      </a>
+    </div>
+
     <ul class="sidebar-links" v-if="items.length">
       <li v-for="(item, i) in items" :key="i">
         <SidebarGroup

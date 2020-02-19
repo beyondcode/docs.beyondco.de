@@ -51,6 +51,17 @@ See ["SendGrid Inbound Parse"](https://sendgrid.com/docs/for-developers/parsing-
 Be sure the check the box labeled "Post the raw, full MIME message." when setting up SendGrid.
 :::
 
+## MailCare
+
+You can then set your `MAILBOX_DRIVER` to "mailcare".
+
+Next you will need to configure MailCare, to send incoming emails to your application at `/laravel-mailbox/mailcare`:
+- Activate authentication and automation features.
+- Create a new automation with the URL `https://your-application.com/laravel-mailbox/mailcare`
+- Be sure the check the box labeled "Post the raw, full MIME message."
+
+See ["MailCare"](https://mailcare.io) for more information.
+
 ## Local development / log driver
 
 When working locally, you might not want to use real incoming emails while testing your application. Out of the box, this package supports Laravel's "log" mail driver for incoming emails.

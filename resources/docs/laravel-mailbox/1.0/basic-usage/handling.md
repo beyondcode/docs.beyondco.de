@@ -28,7 +28,7 @@ Returns the subject of the email.
 
 ### from()
 
-Returns the senders email address.
+Returns the sender's email address.
 
 ### fromName
 

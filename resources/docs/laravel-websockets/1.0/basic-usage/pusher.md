@@ -32,7 +32,7 @@ To do this, you should add the `host` and `port` configuration key to your `conf
     'app_id' => env('PUSHER_APP_ID'),
     'options' => [
         'cluster' => env('PUSHER_APP_CLUSTER'),
-        'encrypted' => true,
+        'useTLS' => true,
         'host' => '127.0.0.1',
         'port' => 6001,
         'scheme' => 'http'
@@ -93,7 +93,7 @@ To make Laravel Echo work with Laravel WebSockets, you need to make some minor c
 By default, the Pusher JavaScript client tries to send statistic information - you should disable this using the `disableStats` option.
 
 ::: tip
-When using Laravel WebSockets in combination with a custom SSL certificate, be sure to use the `encrypted` option and set it to `true`.
+When using Laravel WebSockets in combination with a custom SSL certificate, be sure to use the `useTLS` option and set it to `true`.
 :::
 
 ```js

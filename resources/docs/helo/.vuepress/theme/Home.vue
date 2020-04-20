@@ -43,7 +43,7 @@
     <div
       class="footer"
     >
-      MIT Licensed | Developed by the awesome people at <a href="https://beyondco.de">Beyond Code</a>.
+      Developed by the awesome people at <a href="https://beyondco.de">Beyond Code</a>.
     </div>
   </div>
 </template>

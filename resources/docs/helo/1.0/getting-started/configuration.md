@@ -92,6 +92,20 @@ function helo($phpmailer) {
 add_action('phpmailer_init', 'helo');
 ```
 
+## PHPMailer
+
+You can use this configuration to use HELO with PHPMailer:
+
+```php
+$mail = new PHPMailer();
+$mail->isSMTP();
+$mail->Host = '127.0.0.1';
+$mail->SMTPAuth = true;
+$mail->Username = 'Mailbox-Name';
+$mail->Password = '';
+$mail->Port = 2525;
+```
+
 ## Yii Framework
 
 You can find documentation for sending emails using SMTP in Yii Framework [here](https://www.yiiframework.com/wiki/656/how-to-send-emails-using-smtp).

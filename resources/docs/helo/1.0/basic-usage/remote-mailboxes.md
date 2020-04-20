@@ -1,7 +1,7 @@
 # Remote Mailboxes
 
-Remote mailboxes in HELO allow you to test your live and staging application as easily as local application emails.
-A remote mailbox in HELO gives you a valid email address that you can use to send emails to. HELO will periodically check if your mailbox has an incoming email and display it in the HELO application.
+Remote mailboxes in HELO allow you to test your live and staging applications as easily as local application emails.
+A remote mailbox in HELO gives you a valid email address that you can use to send emails to. HELO will periodically check if your mailbox has an incoming email and display it in the HELO application. This check only runs if you open the selected remote mailbox and wait for the incoming email. If you don't download the email from the server, it is deleted after 5 minutes.
 
 ## Creating remote mailboxes
 

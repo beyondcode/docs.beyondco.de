@@ -4,7 +4,7 @@ title: Local mailboxes
 
 # Local Mailboxes
 
-The easiest way to catch incoming emails in HELO is by using local mailboxes. Local mailboxes are created automatically, when HELO receives an incoming email from your application. There is no need to manuall create these mailboxes.
+The easiest way to catch incoming emails in HELO is by using local mailboxes. Local mailboxes are created automatically, when HELO receives an incoming email from your application. There is no need to manually create these mailboxes.
 
 ## Email details
 

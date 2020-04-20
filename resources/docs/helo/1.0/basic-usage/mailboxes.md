@@ -29,7 +29,7 @@ Because of this, HELO also allows you to manually toggle the link checker featur
 ## Spam report
 
 When HELO receives an incoming email, it will automatically perform a SpamAssassin check on the email message. The SpamAssassin score will tell you how likely it is, that your email will end up in the users spam box. 
-Please be aware that this score is only one indicator and is not a guarantee that your email will go through. When you actuall send out your email a lot of additional factors come into play, when receiving email servers calculate their own spam score - such as the server that your email was sent from. 
+Please be aware that this score is only one indicator and is not a guarantee that your email will go through. When you actually send out your email a lot of additional factors come into play, when receiving email servers calculate their own spam score - such as the server that your email was sent from. 
 
 The spam report will then give you a detailed information of the SpamAssassin scoring.
 

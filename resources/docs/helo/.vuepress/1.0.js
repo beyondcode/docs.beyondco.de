@@ -4,6 +4,7 @@ module.exports = [
     collapsable: false,
     children: [
     	'getting-started/installation',
+      'getting-started/configuration',
     ],
   },
   {

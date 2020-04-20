@@ -11,7 +11,8 @@
         "docs:websockets:dev": "vuepress dev resources/docs/laravel-websockets",
         "docs:websockets:build": "vuepress build resources/docs/laravel-websockets",
         "docs:mailbox:dev": "vuepress dev resources/docs/laravel-mailbox",
-        "docs:mailbox:build": "vuepress build resources/docs/laravel-mailbox"
+        "docs:mailbox:build": "vuepress build resources/docs/laravel-mailbox",
+        "docs:helo:build": "vuepress build resources/docs/helo"
     },
     "devDependencies": {
         "axios": "^0.18",

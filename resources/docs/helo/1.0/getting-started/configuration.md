@@ -52,7 +52,7 @@ end
 
 You can install the HELO helper package to display additional debug information, like which view file, view content and view data was used when sending the email.
 
-To install the package use: `composer require --dev beyondcode/laravel-helo`  
+To install the package use: `composer require --dev beyondcode/helo-laravel`
 
 Use these configuration values in your Laravel applications `.env` file, to connect to HELO:
 

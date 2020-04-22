@@ -2,9 +2,9 @@
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
-    <router-link
-      :to="$localePath"
-      class="home-link"
+    <a
+      href="https://beyondco.de/?ref=helo-docs"
+      target="_blank"
     >
       <img
         class="logo"
@@ -18,7 +18,7 @@
         v-if="$siteTitle"
         :class="{ 'can-hide': $site.themeConfig.logo }"
       >{{ $siteTitle }}</span>
-    </router-link>
+    </a>
 
     <div
       class="links"

@@ -50,12 +50,19 @@ end
 
 ## Laravel
 
-You can install the HELO helper package to display additional debug information, like which view file, view content and view data was used when sending the email.
-
-To install the package use: `composer require --dev beyondcode/helo-laravel`
-
 Use these configuration values in your Laravel applications `.env` file, to connect to HELO:
 
+For Laravel 7+:
+```
+MAIL_MAILER=smtp
+MAIL_HOST=127.0.0.1
+MAIL_PORT=:port:
+MAIL_USERNAME=Inbox-Name
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+```
+
+For Laravel 6 and below:
 ```
 MAIL_DRIVER=smtp
 MAIL_HOST=127.0.0.1
@@ -64,6 +71,10 @@ MAIL_USERNAME=Inbox-Name
 MAIL_PASSWORD=null
 MAIL_ENCRYPTION=null
 ```
+
+You can install the <strong>optional</strong> HELO helper package to display additional debug information, like which view file, view content and view data was used when sending the email.
+
+To install the package use: `composer require --dev beyondcode/helo-laravel`
 
 ## Symfony
 

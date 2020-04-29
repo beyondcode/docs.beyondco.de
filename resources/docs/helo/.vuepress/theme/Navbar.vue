@@ -3,7 +3,7 @@
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
     <a
-      href="https://beyondco.de/?ref=helo-docs"
+      href="https://usehelo.com/?ref=helo-docs"
       target="_blank"
     >
       <img

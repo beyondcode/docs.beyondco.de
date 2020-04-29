@@ -26,11 +26,12 @@
         'max-width': linksWrapMaxWidth + 'px'
       }"
     >
-      <AlgoliaSearchBox
+      <AlgoliaSearchBox class="can-hide"
         v-if="isAlgoliaSearch"
         :options="algolia"
       />
-      <SearchBox v-else-if="$site.themeConfig.search !== false"/>
+      <SearchBox v-else-if="$site.themeConfig.search !== false" class="can-hide"/>
+        <a class="helo-cta" href="https://usehelo.com/?ref=helo-docs"><strong>Get HELO</strong></a>
       <NavLinks class="can-hide"/>
     </div>
   </header>

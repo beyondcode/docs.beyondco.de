@@ -19,7 +19,7 @@
     <slot name="bottom"/>
 
       <div class="sidebar-heading sidebar-footer">
-        HELO is a <a href="https://beyondco.de" target="_blank">Beyond Code</a> product.
+          <a href="https://usehelo.com/?ref=helo-docs" target="_blank">HELO</a> is a <a href="https://beyondco.de" target="_blank">Beyond Code</a> product.
       </div>
   </div>
 </template>

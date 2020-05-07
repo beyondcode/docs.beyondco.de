@@ -7,7 +7,7 @@
     <meta name="description" content="Debugging and testing your emails has never been easier.">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css">
     
-    <link rel="preload" href="/helo/assets/css/0.styles.6d852875.css" as="style"><link rel="preload" href="/helo/assets/js/app.5c95d058.js" as="script"><link rel="preload" href="/helo/assets/js/7.14fa42ac.js" as="script"><link rel="prefetch" href="/helo/assets/js/10.c8a8c376.js"><link rel="prefetch" href="/helo/assets/js/2.7aec7865.js"><link rel="prefetch" href="/helo/assets/js/3.ca250a6e.js"><link rel="prefetch" href="/helo/assets/js/4.646f3bc1.js"><link rel="prefetch" href="/helo/assets/js/5.64640cfb.js"><link rel="prefetch" href="/helo/assets/js/6.a6b4d7c3.js"><link rel="prefetch" href="/helo/assets/js/8.e16f483e.js"><link rel="prefetch" href="/helo/assets/js/9.3db6133a.js">
+    <link rel="preload" href="/helo/assets/css/0.styles.6d852875.css" as="style"><link rel="preload" href="/helo/assets/js/app.87f66ac4.js" as="script"><link rel="preload" href="/helo/assets/js/7.a6aef0a9.js" as="script"><link rel="prefetch" href="/helo/assets/js/10.c8a8c376.js"><link rel="prefetch" href="/helo/assets/js/2.7aec7865.js"><link rel="prefetch" href="/helo/assets/js/3.ca250a6e.js"><link rel="prefetch" href="/helo/assets/js/4.646f3bc1.js"><link rel="prefetch" href="/helo/assets/js/5.64640cfb.js"><link rel="prefetch" href="/helo/assets/js/6.a6b4d7c3.js"><link rel="prefetch" href="/helo/assets/js/8.e16f483e.js"><link rel="prefetch" href="/helo/assets/js/9.3db6133a.js">
     <link rel="stylesheet" href="/helo/assets/css/0.styles.6d852875.css">
   </head>
   <body>
@@ -19,8 +19,8 @@ config.action_mailer.smtp_settings = {
   :password =&gt; '',
   :address =&gt; '127.0.0.1',
   :domain =&gt; '127.0.0.1',
-  :port =&gt; ':port:',
-  :authentication =&gt; :cram_md5
+  :port =&gt; '2525',
+  :authentication =&gt; :plain
 }
 </code></pre></div><h2 id="ruby-net-smtp"><a href="#ruby-net-smtp" aria-hidden="true" class="header-anchor">#</a> Ruby (net/smtp)</h2> <div class="language- extra-class"><pre class="language-text"><code>require 'net/smtp'
 
@@ -35,7 +35,7 @@ END
 Net::SMTP.start('127.0.0.1',
               2525,
               '127.0.0.1',
-              'Mailbox-Name', '', :cram_md5) do |smtp|
+              'Mailbox-Name', '', :plain) do |smtp|
 smtp.send_message message, 'from@127.0.0.1',
                            'to@127.0.0.1'
 end
@@ -101,6 +101,6 @@ add_action('phpmailer_init', 'helo');
         </a>
         →
       </span></p></div> </div> <!----></div></div>
-    <script src="/helo/assets/js/7.14fa42ac.js" defer></script><script src="/helo/assets/js/app.5c95d058.js" defer></script>
+    <script src="/helo/assets/js/7.a6aef0a9.js" defer></script><script src="/helo/assets/js/app.87f66ac4.js" defer></script>
   </body>
 </html>

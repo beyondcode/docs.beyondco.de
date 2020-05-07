@@ -21,8 +21,8 @@ config.action_mailer.smtp_settings = {
   :password => '',
   :address => '127.0.0.1',
   :domain => '127.0.0.1',
-  :port => ':port:',
-  :authentication => :cram_md5
+  :port => '2525',
+  :authentication => :plain
 }
 ```
 
@@ -42,7 +42,7 @@ END
 Net::SMTP.start('127.0.0.1',
               2525,
               '127.0.0.1',
-              'Mailbox-Name', '', :cram_md5) do |smtp|
+              'Mailbox-Name', '', :plain) do |smtp|
 smtp.send_message message, 'from@127.0.0.1',
                            'to@127.0.0.1'
 end

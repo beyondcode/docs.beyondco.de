@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Str;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,3 +13,14 @@
 
 Route::redirect('/', '/laravel-websockets/1.0/index.html');
 Route::redirect('/docs/', '/laravel-websockets/1.0/index.html');
+
+Route::get('/laravel-websockets/{url?}', function ($url = '') {
+	$url = Str::after($url, '1.0/');
+	$url = Str::before($url, '.html');
+
+	if ($url === 'index') {
+		$url = '';
+	}
+
+	return redirect()->away('https://beyondco.de/docs/laravel-websockets/'.$url, 301);
+})->where('url', '.*');

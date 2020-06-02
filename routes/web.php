@@ -13,7 +13,9 @@ use Illuminate\Support\Str;
 
 Route::redirect('/', '/laravel-websockets/1.0/index.html');
 Route::redirect('/docs/', '/laravel-websockets/1.0/index.html');
-
+Route::get('/laravel-websockets/', function () {
+	return redirect()->away('https://beyondco.de/docs/laravel-websockets/', 301);
+});
 Route::get('/laravel-websockets/{url?}', function ($url = '') {
 	$url = Str::after($url, '1.0/');
 	$url = Str::before($url, '.html');

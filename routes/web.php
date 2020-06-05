@@ -41,3 +41,18 @@ Route::get('/laravel-mailbox/{url?}', function ($url = '') {
 
 	return redirect()->away('https://beyondco.de/docs/laravel-mailbox/'.$url, 301);
 })->where('url', '.*');
+
+
+Route::get('/helo/', function () {
+	return redirect()->away('https://beyondco.de/docs/helo/', 301);
+});
+Route::get('/helo/{url?}', function ($url = '') {
+	$url = Str::after($url, '1.0/');
+	$url = Str::before($url, '.html');
+
+	if ($url === 'index') {
+		$url = '';
+	}
+
+	return redirect()->away('https://beyondco.de/docs/helo/'.$url, 301);
+})->where('url', '.*');

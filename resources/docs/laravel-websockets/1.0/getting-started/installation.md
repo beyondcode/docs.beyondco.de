@@ -128,3 +128,9 @@ return [
     ],
 ];
 ```
+
+Lastly, navigate to `config\app.php` and uncomment
+
+```php
+App\Providers\BroadcastServiceProvider::class,
+```

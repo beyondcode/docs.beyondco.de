@@ -73,3 +73,9 @@ minfds=10240; (min. avail startup file descriptors;default 1024)
 ```
 
 After changing this setting, you'll need to restart the supervisor process (which in turn will restart all your processes that it manages).
+
+When using `supervisor` it's important to restart the WebSockets server after each deployment. Just like you may do it for queue workers. Add the restart command to your deployment script:
+
+```bash
+php artisan websockets:restart
+```

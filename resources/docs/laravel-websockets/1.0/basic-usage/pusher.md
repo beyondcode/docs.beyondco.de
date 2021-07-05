@@ -9,7 +9,7 @@ To make use of the Laravel WebSockets package in combination with Pusher, you fi
 If you are not yet familiar with the concept of Broadcasting in Laravel, please take a look at the [Laravel documentation](https://laravel.com/docs/6.0/broadcasting).
 
 ```bash
-composer require pusher/pusher-php-server "~3.0"
+composer require pusher/pusher-php-server "^5.0"
 ```
 
 Next, you should make sure to use Pusher as your broadcasting driver. This can be achieved by setting the `BROADCAST_DRIVER` environment variable in your `.env` file:
